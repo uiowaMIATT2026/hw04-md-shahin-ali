@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.mali25</category>
+    <title>Gaussian Low-Pass Filter</title>
+    <description>Applies a 3D Gaussian low-pass filter using itk::RecursiveGaussianImageFilter. Same sigma applied in X, Y, Z directions. ECE:5490 HW04 - Md Shahin Ali (mali25)</description>
+    <version>1.0.2026</version>
+    <license>Apache 2.0</license>
+    <contributor>Md Shahin Ali (mali25)</contributor>
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Parameters controlling the Gaussian filter</description>
+        <double>
+            <name>sigma</name>
+            <longflag>sigma</longflag>
+            <description>Sigma for the Gaussian kernel applied equally in X, Y, Z (sigma greater than 0)</description>
+            <label>Sigma</label>
+            <default>1.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>20.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input 3D volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output Gaussian-filtered volume</description>
+        </image>
+    </parameters>
+</executable>

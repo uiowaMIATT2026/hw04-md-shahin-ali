@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.mali25</category>
+    <title>Difference of Gaussians Edge Filter</title>
+    <description>Applies DOG edge-enhancement filter. DOG(f) = G_sigma1(f) - G_sigma2(f). Output rescaled to [0,255] unsigned char. ECE:5490 HW04 - Md Shahin Ali (mali25)</description>
+    <version>1.0.2026</version>
+    <license>Apache 2.0</license>
+    <contributor>Md Shahin Ali (mali25)</contributor>
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Parameters controlling the DOG filter</description>
+        <double>
+            <name>sigma1</name>
+            <longflag>sigma1</longflag>
+            <description>Sigma for first Gaussian (sigma1 must not equal sigma2)</description>
+            <label>Sigma 1</label>
+            <default>2.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>20.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+        <double>
+            <name>sigma2</name>
+            <longflag>sigma2</longflag>
+            <description>Sigma for second Gaussian, typically sigma2 greater than sigma1</description>
+            <label>Sigma 2</label>
+            <default>3.0</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>20.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+    </parameters>
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input 3D volume</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output DOG-filtered volume rescaled to [0,255] unsigned char</description>
+        </image>
+    </parameters>
+</executable>

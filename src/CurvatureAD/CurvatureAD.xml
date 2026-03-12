@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<executable>
+    <category>MIATT.HW04.mali25</category>
+    <title>Curvature Anisotropic Diffusion Filter</title>
+    <description>Applies curvature anisotropic diffusion using itk::CurvatureAnisotropicDiffusionImageFilter. Produces smoother results than gradient AD while still preserving edges. ECE:5490 HW04 - Md Shahin Ali (mali25)</description>
+    <version>1.0.2026</version>
+    <license>Apache 2.0</license>
+    <contributor>Md Shahin Ali (mali25)</contributor>
+    <parameters>
+        <label>Filter Parameters</label>
+        <description>Parameters controlling the curvature anisotropic diffusion filter</description>
+        <double>
+            <name>conductance</name>
+            <longflag>conductance</longflag>
+            <description>Conductance parameter controlling edge sensitivity</description>
+            <label>Conductance</label>
+            <default>2.0</default>
+            <constraints>
+                <minimum>0.01</minimum>
+                <maximum>10.0</maximum>
+                <step>0.1</step>
+            </constraints>
+        </double>
+        <double>
+            <name>timeStep</name>
+            <longflag>timeStep</longflag>
+            <description>Time step for diffusion PDE, use 0.0625 or smaller for 3D stability</description>
+            <label>Time Step</label>
+            <default>0.0625</default>
+            <constraints>
+                <minimum>0.001</minimum>
+                <maximum>0.5</maximum>
+                <step>0.001</step>
+            </constraints>
+        </double>
+        <integer>
+            <name>iterations</name>
+            <longflag>iterations</longflag>
+            <description>Number of diffusion iterations</description>
+            <label>Iterations</label>
+            <default>5</default>
+            <constraints>
+                <minimum>1</minimum>
+                <maximum>100</maximum>
+                <step>1</step>
+            </constraints>
+        </integer>
+    </parameters>
+    <parameters>
+        <label>IO</label>
+        <description>Input/output parameters</description>
+        <image>
+            <name>inputVolume</name>
+            <longflag>inputVolume</longflag>
+            <label>Input Volume</label>
+            <channel>input</channel>
+            <description>Input 3D volume to be filtered</description>
+        </image>
+        <image>
+            <name>outputVolume</name>
+            <longflag>outputVolume</longflag>
+            <label>Output Volume</label>
+            <channel>output</channel>
+            <description>Output curvature anisotropic diffusion filtered volume</description>
+        </image>
+    </parameters>
+</executable>
