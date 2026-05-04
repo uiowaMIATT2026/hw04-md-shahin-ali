@@ -12,7 +12,7 @@
         <double>
             <name>lowThreshold</name>
             <longflag>lowThreshold</longflag>
-            <description>Lower bound of the threshold range (inclusive). Pixels with intensity >= lowThreshold and <= highThreshold are set to insideValue.</description>
+            <description>Lower bound of the threshold range (inclusive). Pixels with intensity &gt;= lowThreshold and &lt;= highThreshold are set to insideValue.</description>
             <label>Low Threshold</label>
             <default>50.0</default>
             <constraints>
@@ -24,7 +24,7 @@
         <double>
             <name>highThreshold</name>
             <longflag>highThreshold</longflag>
-            <description>Upper bound of the threshold range (inclusive). Must be greater than or equal to lowThreshold. Pixels with intensity <= highThreshold and >= lowThreshold are set to insideValue.</description>
+            <description>Upper bound of the threshold range (inclusive). Must be greater than or equal to lowThreshold. Pixels with intensity &lt;= highThreshold and &gt;= lowThreshold are set to insideValue.</description>
             <label>High Threshold</label>
             <default>100.0</default>
             <constraints>
