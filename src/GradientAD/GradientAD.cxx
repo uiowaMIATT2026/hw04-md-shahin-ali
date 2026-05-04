@@ -1,3 +1,7 @@
+// GradientAD - Gradient anisotropic diffusion filter for 3D NIFTI images
+// Author: Md Shahin Ali (mali25)
+// ECE:5490 HW04
+
 // GradientAD.cxx
 // ECE:5490 HW04 - Gradient Anisotropic Diffusion Filter
 // Author: Md Shahin Ali (mali25)
