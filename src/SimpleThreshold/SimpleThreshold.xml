@@ -66,7 +66,7 @@
             <longflag>inputVolume</longflag>
             <label>Input Volume</label>
             <channel>input</channel>
-            <description>Input 3D NIFTI volume with signed short pixel type to be thresholded.</description>
+            <description>Input 3D NIFTI volume with signed short pixel type. This volume will be thresholded using the specified low and high threshold values.</description>
         </image>
         <image>
             <name>outputVolume</name>
