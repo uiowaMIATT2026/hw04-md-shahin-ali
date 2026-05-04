@@ -1,3 +1,7 @@
+// SimpleThreshold - Binary threshold filter for 3D NIFTI images
+// Author: Md Shahin Ali (mali25)
+// ECE:5490 HW04
+
 // SimpleThreshold.cxx
 // ECE:5490 HW04 - Binary Threshold Filter
 // Author: Md Shahin Ali (mali25)
