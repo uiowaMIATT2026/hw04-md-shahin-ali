@@ -1,3 +1,7 @@
+// DOG - Difference of Gaussians edge-enhancing filter for 3D NIFTI images
+// Author: Md Shahin Ali (mali25)
+// ECE:5490 HW04
+
 // DOG.cxx
 // ECE:5490 HW04 - Difference of Gaussians Edge Filter
 // Author: Md Shahin Ali (mali25)
