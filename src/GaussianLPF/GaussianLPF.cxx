@@ -1,3 +1,7 @@
+// GaussianLPF - Gaussian low-pass filter for 3D NIFTI images
+// Author: Md Shahin Ali (mali25)
+// ECE:5490 HW04
+
 // GaussianLPF.cxx
 // ECE:5490 HW04 - Gaussian Low-Pass Filter
 // Author: Md Shahin Ali (mali25)
