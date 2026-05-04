@@ -2,7 +2,7 @@
 <executable>
     <category>MIATT.HW04.mali25</category>
     <title>Simple Threshold Filter</title>
-    <description>Binary threshold filter for 3D NIFTI images. Pixels within [lowThreshold, highThreshold] are set to insideValue, all others to outsideValue. ECE:5490 HW04 - Md Shahin Ali (mali25)</description>
+    <description>Binary threshold filter for 3D NIFTI images with signed short pixel type. Pixels within [lowThreshold, highThreshold] are set to insideValue, all other pixels outside this range are set to outsideValue. Based on itk::BinaryThresholdImageFilter. ECE:5490 HW04 - Md Shahin Ali (mali25)</description>
     <version>1.0.2026</version>
     <license>Apache 2.0</license>
     <contributor>Md Shahin Ali (mali25)</contributor>
@@ -12,30 +12,50 @@
         <double>
             <name>lowThreshold</name>
             <longflag>lowThreshold</longflag>
-            <description>Lower bound of the threshold range (inclusive)</description>
+            <description>Lower bound of the threshold range (inclusive). Pixels with intensity >= lowThreshold and <= highThreshold are set to insideValue.</description>
             <label>Low Threshold</label>
             <default>50.0</default>
+            <constraints>
+                <minimum>-32768.0</minimum>
+                <maximum>32767.0</maximum>
+                <step>1.0</step>
+            </constraints>
         </double>
         <double>
             <name>highThreshold</name>
             <longflag>highThreshold</longflag>
-            <description>Upper bound of the threshold range (inclusive)</description>
+            <description>Upper bound of the threshold range (inclusive). Must be greater than or equal to lowThreshold. Pixels with intensity <= highThreshold and >= lowThreshold are set to insideValue.</description>
             <label>High Threshold</label>
             <default>100.0</default>
+            <constraints>
+                <minimum>-32768.0</minimum>
+                <maximum>32767.0</maximum>
+                <step>1.0</step>
+            </constraints>
         </double>
         <double>
             <name>outsideValue</name>
             <longflag>outsideValue</longflag>
-            <description>Value assigned to pixels outside the threshold range</description>
+            <description>Output intensity value assigned to pixels whose input intensity falls outside the range [lowThreshold, highThreshold].</description>
             <label>Outside Value</label>
             <default>0.0</default>
+            <constraints>
+                <minimum>-32768.0</minimum>
+                <maximum>32767.0</maximum>
+                <step>1.0</step>
+            </constraints>
         </double>
         <double>
             <name>insideValue</name>
             <longflag>insideValue</longflag>
-            <description>Value assigned to pixels inside the threshold range</description>
+            <description>Output intensity value assigned to pixels whose input intensity falls within the range [lowThreshold, highThreshold].</description>
             <label>Inside Value</label>
             <default>255.0</default>
+            <constraints>
+                <minimum>-32768.0</minimum>
+                <maximum>32767.0</maximum>
+                <step>1.0</step>
+            </constraints>
         </double>
     </parameters>
     <parameters>
@@ -46,14 +66,14 @@
             <longflag>inputVolume</longflag>
             <label>Input Volume</label>
             <channel>input</channel>
-            <description>Input 3D NIFTI volume (signed short)</description>
+            <description>Input 3D NIFTI volume with signed short pixel type to be thresholded.</description>
         </image>
         <image>
             <name>outputVolume</name>
             <longflag>outputVolume</longflag>
             <label>Output Volume</label>
             <channel>output</channel>
-            <description>Output thresholded volume</description>
+            <description>Output 3D NIFTI volume after binary thresholding. Same dimensions and pixel type as input.</description>
         </image>
     </parameters>
 </executable>
